@@ -21,7 +21,7 @@
           //Bail early if selector is undefined or null
           if(typeof $objSelector != "undefined" || $objSelector == null){
                 //Bail early if selector not of type password
-                if($objSelector.type != "password"){
+                if($objSelector.type !== "password"){
                   console.log('Error: selector is not of type password');
                   return false;
                 }else{
