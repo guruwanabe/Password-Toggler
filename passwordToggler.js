@@ -49,14 +49,14 @@
           
           if (typeof (objSelector) != "undefined" || objSelector != null) {
               //Supporting some HTML API
-              this.strPrefix   = objSelector.hasAttribute('data-prefix') ? objSelector.getAttribute('data-prefix') : this.strPrefix;
+              this.strPrefix   = objSelector.hasAttribute("data-prefix") ? objSelector.getAttribute("data-prefix") : this.strPrefix;
         
-              this.strHandler  = objSelector.hasAttribute('data-handler') ? objSelector.getAttribute('data-handler') : this.strHandler;
-              this.strIconShow = objSelector.hasAttribute('data-icon-show') ? objSelector.getAttribute('data-icon-show') : this.strIconShow;
-              this.strIconHide = objSelector.hasAttribute('data-icon-hide') ? objSelector.getAttribute('data-icon-hide') : this.strIconHide;
-              this.strTextShow = objSelector.hasAttribute('data-text-show') ? objSelector.getAttribute('data-text-show') : this.strTextShow;
-              this.strTextHide = objSelector.hasAttribute('data-text-hide') ? objSelector.getAttribute('data-text-hide') : this.strTextHide;
-              this.strBtnClass = objSelector.hasAttribute('data-button-class') ? objSelector.getAttribute('data-button-class', true) : this.strBtnClass;
+              this.strHandler  = objSelector.hasAttribute("data-handler") ? objSelector.getAttribute("data-handler") : this.strHandler;
+              this.strIconShow = objSelector.hasAttribute("data-icon-show") ? objSelector.getAttribute("data-icon-show") : this.strIconShow;
+              this.strIconHide = objSelector.hasAttribute("data-icon-hide") ? objSelector.getAttribute("data-icon-hide") : this.strIconHide;
+              this.strTextShow = objSelector.hasAttribute("data-text-show") ? objSelector.getAttribute("data-text-show") : this.strTextShow;
+              this.strTextHide = objSelector.hasAttribute("data-text-hide") ? objSelector.getAttribute("data-text-hide") : this.strTextHide;
+              this.strBtnClass = objSelector.hasAttribute("data-button-class") ? objSelector.getAttribute("data-button-class") : this.strBtnClass;
           }
           return this;
         },
@@ -123,13 +123,13 @@
               $blnActive = false;
             }
           }catch(e){
-            console.log(e.message)
+            console.log(e.message);
           }
           return false;
         },
         addListener: function($element, $strListener) {
           var self = this;
-          var objSelector = document.getElementById(this.strPrefix+'button_'+this.strSelector);
+          var objSelector = document.getElementById(this.strPrefix+"button_"+this.strSelector);
           if(this.blnCreated === true){
             //console.time('addEventListener');
             //If the browser supports EventLIstener use it, else fall to attach event (IE)
