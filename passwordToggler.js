@@ -152,4 +152,4 @@
             //console.timeEnd('addEventListenerEnd');
           }
         }
-      }
+      };
