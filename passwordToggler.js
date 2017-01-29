@@ -127,7 +127,6 @@
           }
           return false;
         },
-        
         addListener: function($element, $strListener) {
           var self = this;
           var objSelector = document.getElementById(this.strPrefix+'button_'+this.strSelector);
@@ -142,33 +141,14 @@
                 self.togglePassword($element); 
                 //console.timeEnd('togglePasswordEnd');
               });
-
-               if($strListener === "mouseover"){
-                  objSelector.addEventListener(
-                      'mouseout', function(){ 
-                        //console.time('togglePassword');
-                        self.togglePassword($element, false); 
-                        //console.timeEnd('togglePasswordEnd');
-                      }
-                  );
-               } 
-               if($strListener === "mouseout"){
-                  objSelector.addEventListener(
-                     "mouseover", function(){ 
-                        //console.time('togglePassword');
-                        self.togglePassword($element, true); 
-                        //console.timeEnd('togglePasswordEnd');
-                      }
-                  );
-               } 
-
-            }else {
+            }else{
               objSelector.attachEvent($strListener, function(){ 
                 //console.time('togglePassword');
                 self.togglePassword($element); 
                 //console.timeEnd('togglePasswordEnd');
               });
             }
+            return false;
             //console.timeEnd('addEventListenerEnd');
           }
         }
