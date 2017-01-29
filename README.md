@@ -1,0 +1,2 @@
+# Password-Toggler
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/bbf55a77cc3f489cb1738a3b3c55853f)](https://www.codacy.com/app/guruwanabe/Password-Toggler?utm_source=github.com&utm_medium=referral&utm_content=guruwanabe/Password-Toggler&utm_campaign=badger)
