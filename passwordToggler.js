@@ -1,14 +1,14 @@
       function PasswordToggler($strSelector, callBack){
 
-          this.strPrefix   = '';
+          this.strPrefix   = "";
           
           this.strSelector = $strSelector;
-          this.strHandler  = 'click';
-          this.strIconShow = 'fa fa-eye';
-          this.strIconHide = 'fa fa-eye-slash';
-          this.strTextShow = 'Show password';
-          this.strTextHide = 'Hide password';
-          this.strBtnClass = 'btn btn-default';
+          this.strHandler  = "click";
+          this.strIconShow = "fa fa-eye";
+          this.strIconHide = "fa fa-eye-slash";
+          this.strTextShow = "Show password";
+          this.strTextHide = "Hide password";
+          this.strBtnClass = "btn btn-default";
       }
 
       PasswordToggler.prototype = {
@@ -65,10 +65,10 @@
             var $objSelector = this.setSelector();
             //console.log($objSelector,'asdasd');
             //Create aditional markup
-            var objElement = document.createElement('div');
-            var objElementChild = document.createElement('span');
-            var objButton  = document.createElement('button');
-            var objIcon    = document.createElement('i');
+            var objElement = document.createElement("div");
+            var objElementChild = document.createElement("span");
+            var objButton  = document.createElement("button");
+            var objIcon    = document.createElement("i");
             
             if (typeof objElement != "undefined" && $objSelector != null) {
                 //Populate the object
@@ -81,17 +81,17 @@
                 objButton.appendChild(objIcon);
 
                 //Apply some styles
-                objElement.setAttribute('class', this.strPrefix+'input-group');
+                objElement.setAttribute("class", this.strPrefix+"input-group");
        
-                objElementChild.setAttribute('class', this.strPrefix+'input-group-btn');
+                objElementChild.setAttribute("class", this.strPrefix+"input-group-btn");
 
-                objButton.setAttribute('type', 'button');
-                objButton.setAttribute('id', this.strPrefix+'button_'+this.strSelector);
-                objButton.setAttribute('class', this.strBtnClass);
-                objButton.setAttribute('title', this.strTextShow);
+                objButton.setAttribute("type", "button");
+                objButton.setAttribute("id", this.strPrefix+"button_"+this.strSelector);
+                objButton.setAttribute("class", this.strBtnClass);
+                objButton.setAttribute("title", this.strTextShow);
 
-                objIcon.setAttribute('class', this.strIconShow);
-                objIcon.setAttribute('aria-hidden', 'true');
+                objIcon.setAttribute("class", this.strIconShow);
+                objIcon.setAttribute("aria-hidden", "true");
                 //We have created the layout if we got here
                 this.blnCreated = true;
                 //populate the object
@@ -113,13 +113,13 @@
           try{
             if ($element.type === "password") {
               $element.type = "text";
-              this.objIcon.setAttribute('class', this.strIconHide);
-              this.objButton.setAttribute('title', this.strTextHide);
+              this.objIcon.setAttribute("class", this.strIconHide);
+              this.objButton.setAttribute("title", this.strTextHide);
               $blnActive = true;
             } else {
               $element.type = "password";
-              this.objIcon.setAttribute('class', this.strIconShow);
-              this.objButton.setAttribute('title', this.strTextShow);
+              this.objIcon.setAttribute("class", this.strIconShow);
+              this.objButton.setAttribute("title", this.strTextShow);
               $blnActive = false;
             }
           }catch(e){
@@ -132,44 +132,44 @@
           var self = this;
           var objSelector = document.getElementById(this.strPrefix+'button_'+this.strSelector);
           if(this.blnCreated === true){
-            console.time('addEventListener');
+            //console.time('addEventListener');
             //If the browser supports EventLIstener use it, else fall to attach event (IE)
             if (objSelector.addEventListener) {
-              console.log(objSelector.addEventListener);
+              //console.log(objSelector.addEventListener);
               objSelector.addEventListener(
               $strListener, function(){ 
-                console.time('togglePassword');
+                //console.time('togglePassword');
                 self.togglePassword($element); 
-                console.timeEnd('togglePasswordEnd');
+                //console.timeEnd('togglePasswordEnd');
               });
 
-               if($strListener === 'mouseover'){
+               if($strListener === "mouseover"){
                   objSelector.addEventListener(
                       'mouseout', function(){ 
-                        console.time('togglePassword');
+                        //console.time('togglePassword');
                         self.togglePassword($element, false); 
-                        console.timeEnd('togglePasswordEnd');
+                        //console.timeEnd('togglePasswordEnd');
                       }
                   );
                } 
-               if($strListener === 'mouseout'){
+               if($strListener === "mouseout"){
                   objSelector.addEventListener(
-                      'mouseover', function(){ 
-                        console.time('togglePassword');
+                     "mouseover", function(){ 
+                        //console.time('togglePassword');
                         self.togglePassword($element, true); 
-                        console.timeEnd('togglePasswordEnd');
+                        //console.timeEnd('togglePasswordEnd');
                       }
                   );
                } 
 
             }else {
               objSelector.attachEvent($strListener, function(){ 
-                console.time('togglePassword');
+                //console.time('togglePassword');
                 self.togglePassword($element); 
-                console.timeEnd('togglePasswordEnd');
+                //console.timeEnd('togglePasswordEnd');
               });
             }
-            console.timeEnd('addEventListenerEnd');
+            //console.timeEnd('addEventListenerEnd');
           }
         }
       }
