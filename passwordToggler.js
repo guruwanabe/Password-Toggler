@@ -123,7 +123,7 @@
               $blnActive = false;
             }
           }catch(e){
-            console.log(e.message);
+            Console.log(e.message);
           }
           return false;
         },
