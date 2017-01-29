@@ -18,23 +18,28 @@
         objButton: null,
         init: function(){
           var $objSelector = this.setSelector();
-          //Bail early if selector is undefined, null or not a password type input
-          if($objSelector.type != 'password' || typeof $objSelector == 'undefined' || typeof $objSelector == null){
-             console.log('Error: selector is undefined || null or not of type password');
-            return false;
-          }else{
-            if (this.blnCreated === true) {
-              return this;
-            }else{
-              console.time('htmlApi');
-              this.htmlApi();
-              console.timeEnd("htmlApiEnd");
+          //Bail early if selector is undefined or null
+          if(typeof $objSelector != "undefined" || $objSelector == null){
+                //Bail early if selector not of type password
+                if($objSelector.type != "password"){
+                  console.log('Error: selector is not of type password');
+                  return false;
+                }else{
+                  if (this.blnCreated === true) {
+                    return this;
+                  }else{
+                    //console.time('htmlApi');
+                    this.htmlApi();
+                    //console.timeEnd("htmlApiEnd");
 
-              console.time('createMarkup');
-              this.createMarkup();
-              console.timeEnd("createMarkupEnd");
-            }
+                    //console.time('createMarkup');
+                    this.createMarkup();
+                    //console.timeEnd("createMarkupEnd");
+                  }
+                }
           }
+          //console.log('Error: selector is undefined || null');
+          return false;
           //console.log(PasswordToggler.prototype.blnCreated, this.blnCreated);
           
         },
@@ -42,7 +47,7 @@
           //Cache the selector
           var objSelector = this.setSelector();
           
-          if (typeof (objSelector) != 'undefined' || objSelector != null) {
+          if (typeof (objSelector) != "undefined" || objSelector != null) {
               //Supporting some HTML API
               this.strPrefix   = objSelector.hasAttribute('data-prefix') ? objSelector.getAttribute('data-prefix') : this.strPrefix;
         
@@ -58,14 +63,14 @@
         createMarkup: function() {
             //reference the selector
             var $objSelector = this.setSelector();
-            console.log($objSelector,'asdasd');
+            //console.log($objSelector,'asdasd');
             //Create aditional markup
             var objElement = document.createElement('div');
             var objElementChild = document.createElement('span');
             var objButton  = document.createElement('button');
             var objIcon    = document.createElement('i');
             
-            if (typeof objElement != 'undefined' && $objSelector != null) {
+            if (typeof objElement != "undefined" && $objSelector != null) {
                 //Populate the object
                 this.objSelector = $objSelector;
                 //Insert into DOM
@@ -93,11 +98,11 @@
                 this.objIcon = objIcon;
                 this.objButton = objButton;
                 //adding eventListener
-                console.time('addListener');
+                //console.time('addListener');
                 this.addListener(this.objSelector, this.strHandler);
-                console.timeEnd('addListenerEnd');
+                //console.timeEnd('addListenerEnd');
             }
-            console.log(this, $objSelector, objElement, this.objButton, this.objIcon);
+            //console.log(this, $objSelector, objElement, this.objButton, this.objIcon);
           return this;
 
         },
@@ -106,13 +111,13 @@
         },
         togglePassword: function($element, $blnActive) {
           try{
-            if ($element.type === 'password') {
-              $element.type = 'text';
+            if ($element.type === "password") {
+              $element.type = "text";
               this.objIcon.setAttribute('class', this.strIconHide);
               this.objButton.setAttribute('title', this.strTextHide);
               $blnActive = true;
             } else {
-              $element.type = 'password';
+              $element.type = "password";
               this.objIcon.setAttribute('class', this.strIconShow);
               this.objButton.setAttribute('title', this.strTextShow);
               $blnActive = false;
