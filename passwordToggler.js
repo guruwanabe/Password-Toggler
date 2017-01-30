@@ -123,7 +123,7 @@
               $blnActive = false;
             }
           }catch(e){
-             this.exception(e.message);
+             throw new this.exception(e.message);
             //console.log(e.message);
           }
           return false;
