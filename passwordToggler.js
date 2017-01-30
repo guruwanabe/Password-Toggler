@@ -123,7 +123,7 @@
               $blnActive = false;
             }
           }catch(e){
-             new PasswordToggler.exception(e.message)
+             this.exception(e.message);
             //console.log(e.message);
           }
           return false;
