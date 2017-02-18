@@ -171,6 +171,7 @@
 			}
 		}
 	};
+
 +function ($) {
 		'use strict';
 
