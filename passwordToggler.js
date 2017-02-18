@@ -115,12 +115,12 @@
 		},
 		setSelector: function(){
 			var $objSelector = this.strSelector;
-			if(typeof $objSelector === 'object'){
+			if(typeof $objSelector === "object"){
 				this.objSelector = $($objSelector);
 			}else{
 				//Manage plain JS selector
-				$objSelector.replace('#', '');
-				$objSelector.replace('.', '');
+				$objSelector.replace("#", "");
+				$objSelector.replace(".", "");
 				$objSelector = document.getElementById($objSelector);
 				//Convert the selector from jquery object to js object
 				this.objSelector = $objSelector[0];
