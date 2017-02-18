@@ -180,13 +180,13 @@
 	function Plugin($option) {
 		return this.each(function () {
 			var self   = $(this);
-			var data    = self.data('passwordToggler');
-			var options = $.extend({}, PasswordToggler.DEFAULTS, self.data(), typeof $option == 'object' && $option);
+			var data    = self.data("passwordToggler");
+			var options = $.extend({}, PasswordToggler.DEFAULTS, self.data(), typeof $option == "object" && $option);
 
 			if (!data) {
-				self.data('passwordToggler', (data = new PasswordToggler(this, options)));
+				self.data("passwordToggler", (data = new PasswordToggler(this, options)));
 			}
-			if (typeof $option == 'string'){
+			if (typeof $option == "string"){
 				data[option]($option);
 			}
 		});
@@ -202,6 +202,6 @@
 	// ============================
 	$.fn.passwordToggler.noConflict = function () {
 		$.fn.passwordToggler = old;
-		return this
+		return this;
 	};
 }(jQuery);
