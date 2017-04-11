@@ -187,7 +187,7 @@
 				self.data("passwordToggler", (data = new PasswordToggler(this, options)));
 			}
 			if (typeof $option == "string"){
-				data[option]($option);
+				data[options]($option);
 			}
 		});
 	}
