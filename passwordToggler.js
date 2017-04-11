@@ -173,7 +173,7 @@
 	};
 
 +function ($) {
-		'use strict';
+	"use strict";
 
 	// PasswordToggler Plugin
 	// =======================
